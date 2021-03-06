@@ -1,6 +1,6 @@
 {
   "name": "url-monitor",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "Simple URL monitoring",
   "main": "url-monitor.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j8la/url-monitor.git"
+    "url": "git+https://github.com/jorgev259/url-monitor.git"
   },
   "keywords": [
     "url",
@@ -16,13 +16,14 @@
     "monitor",
     "http"
   ],
-  "author": "Julien Blanc",
+  "author": "Jorge Vargas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j8la/url-monitor/issues"
+    "url": "https://github.com/jorgev259/url-monitor/issues"
   },
-  "homepage": "https://github.com/j8la/url-monitor#readme",
+  "homepage": "https://github.com/jorgev259/url-monitor#readme",
   "dependencies": {
-    "http-status": "^1.0.1"
+    "http-status": "^1.0.1",
+    "request": "^2.88.2"
   }
 }

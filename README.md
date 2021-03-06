@@ -50,13 +50,14 @@ website.start();
 
 ### Responses on events
 ```javascript
-{ code: 200, url: 'http://my.url/something', message: 'OK' }
-{ code: 404, url: 'http://my.url/something', message: 'Not found' }
-{ code: null, url: 'http://my.url/something', message: 'Host unavailable' }
+{ code: 200, url: 'http://my.url/something', message: 'OK', time: 1000 }
+{ code: 404, url: 'http://my.url/something', message: 'Not found', time: 1000 }
+{ code: null, url: 'http://my.url/something', message: 'Host unavailable', time: 0 }
 ...
 ```
 
 ## Updates
+- `v1.4.0 :` Add 'time' to event responses
 - `v1.3.3 :` Fix bug in https response with http result code in url field. Improves HTTP messages.
 - `v1.3.2 :` Avoid self-signed certificate error
 - `v1.3.0 :` Add privacy to some methods
@@ -67,4 +68,4 @@ website.start();
 ## Licence
 The MIT License (MIT) 
 Copyright (c) 2016-2018 Julien Blanc
-
+Copyright (c) 2020 Jorge Vargas
