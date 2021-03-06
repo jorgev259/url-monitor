@@ -2,7 +2,7 @@ const Urlmon = require('./url-monitor')
 const urls = ['https://www.google.com', 'https://flippingbook.com/404', 'https://www.jkgfnkosdfgnkmsdfgsdfg.net/']
 
 urls.forEach(url => {
-  const website = new Urlmon({ url, interval: 5000, timeout: 3000 })
+  const website = new Urlmon({ url })
 
   website.on('error', (data) => {
     console.log('error', data)

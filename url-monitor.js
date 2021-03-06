@@ -1,57 +1,46 @@
 const event = require('events').EventEmitter
 const HTTPStatus = require('http-status')
-const util = require('util')
 const request = require('request')
 
-// ------ Constructor
-function urlmon (options) {
-  this.url = options.url
-  this.interval = options.interval || 5000
-  this.timeout = options.timeout || 3000
-  this.handle = null
-  this.lastState = null
-  this.successCodes = options.successCodes || [200, 301, 302]
-}
+class Urlmon extends event {
+  constructor (args) {
+    super()
+    const { url, interval = 5000, timeout = 3000, successCodes = [200, 301, 302] } = args
 
-// ------ Inherit from 'events' module
-util.inherits(urlmon, event)
-
-// ------ Starts monitor
-urlmon.prototype.start = function () {
-  const self = this
-
-  const timer = function () {
-    testUrl.call(self, self.url)
-    self.handle = setTimeout(timer, self.interval)
+    this.url = url
+    this.interval = interval
+    this.timeout = timeout
+    this.successCodes = successCodes
   }
 
-  timer()
-}
+  start () {
+    if (this.handle) throw new Error('Monitor already started')
+    this.handle = setTimeout(testUrl, 0, this)
+  }
 
-// ------ Stops monitor
-urlmon.prototype.stop = function () {
-  clearTimeout(this.handle)
-  this.handle = null
+  stop () {
+    if (!this.handle) throw new Error('Monitor is not started')
+    clearTimeout(this.handle)
+    this.handle = null
+  }
 }
 
 // ------ Test url
-function testUrl (url) {
-  const self = this
-  request.get({
-    url,
-    timeout: self.timeout,
-    time: true
-  }, (err, res) => {
-    const code = res ? res.statusCode : null
-    let event = 'unavailable'
+function testUrl (self) {
+  const { url, timeout } = self
 
-    if (err) event = 'error'
-    else if (self.successCodes.includes(code)) event = 'available'
+  request.get({ url, timeout, time: true },
+    (err, res) => {
+      const code = res ? res.statusCode : null
+      let event = 'unavailable'
 
-    // ask Koba if she wants response time or end time
-    self.emit(event, { code, url, message: res ? HTTPStatus[code] : 'Host unavailable', time: res ? res.timings.end : 0 })
-  })
+      if (err) event = 'error'
+      else if (self.successCodes.includes(code)) event = 'available'
+
+      self.emit(event, { code, url, message: res ? HTTPStatus[code] : 'Host unavailable', time: res ? res.timings.end : 0 })
+      self.handle = setTimeout(testUrl, self.interval, self)
+    })
 }
 
 // ------ Export module
-module.exports = urlmon
+module.exports = Urlmon

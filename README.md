@@ -11,11 +11,7 @@ npm install url-monitor
 ```javascript
 var urlmon = require('url-monitor');
 
-var website = new urlmon({
-	url:'https://www.google.fr/?gws_rd=ssl', 
-	interval: 5000,
-	timeout: 3000
-});
+var website = new urlmon({ url:'https://www.google.fr/?gws_rd=ssl' });
 
 website.on('error', (data) => {
 	website.stop();
@@ -58,6 +54,7 @@ website.start();
 ```
 
 ## Updates
+- `v1.4.2 :` use Urlmon as class and add errors to class methods
 - `v1.4.1 :` Add configurable successCodes per url
 - `v1.4.0 :` Add 'time' to event responses
 - `v1.3.3 :` Fix bug in https response with http result code in url field. Improves HTTP messages.
