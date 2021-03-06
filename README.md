@@ -39,7 +39,8 @@ website.start();
 {
 	url:'https://www.google.fr/?gws_rd=ssl', // Required
 	interval: 5000,                          // Time interval in ms, default to 5000
-	timeout: 3000                            // Timeout in ms, default to 3000
+	timeout: 300,                            // Timeout in ms, default to 3000
+	successCodes: [200, 301, 302]            // responseCodes that trigger 'available' event
 }
 ```
 
@@ -57,6 +58,7 @@ website.start();
 ```
 
 ## Updates
+- `v1.4.1 :` Add configurable successCodes per url
 - `v1.4.0 :` Add 'time' to event responses
 - `v1.3.3 :` Fix bug in https response with http result code in url field. Improves HTTP messages.
 - `v1.3.2 :` Avoid self-signed certificate error

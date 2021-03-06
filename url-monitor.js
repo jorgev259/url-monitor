@@ -9,6 +9,8 @@ function urlmon (options) {
   this.interval = options.interval || 5000
   this.timeout = options.timeout || 3000
   this.handle = null
+  this.lastState = null
+  this.successCodes = options.successCodes || [200, 301, 302]
 }
 
 // ------ Inherit from 'events' module
@@ -40,19 +42,14 @@ function testUrl (url) {
     timeout: self.timeout,
     time: true
   }, (err, res) => {
-    if (err) {
-      self.emit('error', { code: null, url: url, message: 'Host unavailable', time: 0 })
-    } else {
-      let event = 'unavailable'
+    const code = res ? res.statusCode : null
+    let event = 'unavailable'
 
-      if (res.statusCode === 200 || res.statusCode === 301 || res.statusCode === 302) {
-        event = 'available'
-      }
+    if (err) event = 'error'
+    else if (self.successCodes.includes(code)) event = 'available'
 
-      // ask Koba if she wants response time or end time
-      const code = res.statusCode
-      self.emit(event, { code, url, message: HTTPStatus[code], time: res.timings.end })
-    }
+    // ask Koba if she wants response time or end time
+    self.emit(event, { code, url, message: res ? HTTPStatus[code] : 'Host unavailable', time: res ? res.timings.end : 0 })
   })
 }
 
