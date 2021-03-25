@@ -1,6 +1,6 @@
 {
   "name": "url-monitor",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Simple URL monitoring",
   "main": "url-monitor.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/jorgev259/url-monitor#readme",
   "dependencies": {
     "http-status": "^1.0.1",
+    "ping": "^0.4.0",
     "request": "^2.88.2"
   },
   "devDependencies": {

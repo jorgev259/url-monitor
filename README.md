@@ -37,6 +37,7 @@ website.start();
 	interval: 5000,                          // Time interval in ms, default to 5000
 	timeout: 300,                            // Timeout in ms, default to 3000
 	successCodes: [200, 301, 302]            // responseCodes that trigger 'available' event
+	ping: false,                             // use ping module instead of http request
 }
 ```
 
@@ -54,6 +55,7 @@ website.start();
 ```
 
 ## Updates
+- `v1.4.2 :` add ping option to use module 'ping' in request instead of http request
 - `v1.4.2 :` use Urlmon as class and add errors to class methods
 - `v1.4.1 :` Add configurable successCodes per url
 - `v1.4.0 :` Add 'time' to event responses

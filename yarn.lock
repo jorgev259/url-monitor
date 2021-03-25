@@ -1313,6 +1313,14 @@ pify@^4.0.1:
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
 
+ping@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ping/-/ping-0.4.0.tgz#2f382d2143de59671a33c082abab28c853b29715"
+  integrity sha512-qymcd5Bwv74b9o7qzAduN8wffr3ba11ZLBjY6gPQR2LpQ++9He8keSRFSaBb3OcR4SvXCWhi9VbLD1ycUNhz9Q==
+  dependencies:
+    q "1.x"
+    underscore "^1.12.0"
+
 pkg-conf@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/pkg-conf/-/pkg-conf-3.1.0.tgz#d9f9c75ea1bae0e77938cde045b276dac7cc69ae"
@@ -1356,6 +1364,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+q@1.x:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+  integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
 qs@~6.5.2:
   version "6.5.2"
@@ -1717,6 +1730,11 @@ unbox-primitive@^1.0.0:
     has-bigints "^1.0.0"
     has-symbols "^1.0.0"
     which-boxed-primitive "^1.0.1"
+
+underscore@^1.12.0:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.12.1.tgz#7bb8cc9b3d397e201cf8553336d262544ead829e"
+  integrity sha512-hEQt0+ZLDVUMhebKxL4x1BTtDY7bavVofhZ9KZ4aI26X9SRaE+Y3m83XUL1UP2jn8ynjndwCCpEHdUG+9pP1Tw==
 
 uri-js@^4.2.2:
   version "4.4.1"
