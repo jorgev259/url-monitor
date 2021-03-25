@@ -35,7 +35,7 @@ function testUrl (self) {
       .then(function ({ alive, time }) {
         const event = alive ? 'available' : 'unavailable'
 
-        self.emit(event, { code: 200, url, message: event, time })
+        self.emit(event, { code: 200, url, message: event, time: time === 'unknown' ? 0 : time })
       })
       .catch(err => {
         console.log(err)

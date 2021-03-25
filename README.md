@@ -55,7 +55,8 @@ website.start();
 ```
 
 ## Updates
-- `v1.4.2 :` add ping option to use module 'ping' in request instead of http request
+- `v1.4.4 :` Fix crash when unknown time is returned by ping
+- `v1.4.3 :` add ping option to use module 'ping' in request instead of http request
 - `v1.4.2 :` use Urlmon as class and add errors to class methods
 - `v1.4.1 :` Add configurable successCodes per url
 - `v1.4.0 :` Add 'time' to event responses
